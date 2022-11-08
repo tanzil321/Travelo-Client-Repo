@@ -1,9 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import img1 from '../Assets/travel.png'
+import { AuthContext } from './Context/UserContext';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const { user, logout } = useContext(AuthContext)
+    console.log(user);
+    useEffect(() => {
+      console.log('Navbar',JSON.stringify(user));
+    },[user])
+
+  const handleLogout = () => {
+    logout()
+      .then(toast.warning('User logged out!'))
+      .catch(error => console.log(error))
+  }
     return (
       <div className='p-4 dark:bg-gray-800 dark:text-gray-100 '>
         <div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
@@ -64,7 +77,8 @@ const Header = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink
+                
+                {/* <NavLink
                   to='/login'
                   aria-label='Login Here'
                   title='Login'
@@ -75,8 +89,48 @@ const Header = () => {
                   }
                 >
                   Login
-                </NavLink>
-                <NavLink
+                </NavLink> */}
+                {user?.uid ? (
+            <>
+            <span className='mr-5 text-purple-900 font-bold'> <h1> {user?.uid? user?.displayName : 'user'}</h1></span>
+            <div>
+                    {
+                        user ? <img src={user?.photoURL} title={user?.displayName} style={{
+                            width: '40px',
+                            borderRadius: '50%',
+                            marginRight:'10px'
+                        }} alt="" /> : ''
+                    }
+                </div>
+              <button
+                onClick={handleLogout}
+                className='inline-flex items-center bg-slate-400 border-0 py-1 px-3 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0'
+              >
+                Logout
+                <svg
+                  fill='none'
+                  stroke='currentColor'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+                  className='w-4 h-4 ml-1'
+                  viewBox='0 0 24 24'
+                >
+                  <path d='M5 12h14M12 5l7 7-7 7'></path>
+                </svg>
+              </button>
+            </>
+          ) : (
+            <>
+            <Link to='/login' className='inline-flex  items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none'>
+              Login
+            </Link>
+            <Link to='/register' className='inline-flex  items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none'>
+            Register
+          </Link>
+            </>
+          )}
+                {/* <NavLink
                   to='/register'
                   aria-label='Signup Here'
                   title='Signup'
@@ -87,7 +141,7 @@ const Header = () => {
                   }
                 >
                   SignUp
-                </NavLink>
+                </NavLink> */}
               </li>
             </ul>
             <div className='lg:hidden'>
@@ -167,16 +221,7 @@ const Header = () => {
                             Topics
                           </Link>
                         </li>
-                        <li>
-                          <Link
-                            to='/static'
-                            aria-label='statics'
-                            title='statics'
-                            className='font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
-                          >
-                            Login
-                          </Link>
-                        </li>
+                        
                         <li>
                           <Link
                             to='/blog'
@@ -185,6 +230,16 @@ const Header = () => {
                             className='font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
                           >
                             Blog
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to='/login'
+                            aria-label='login'
+                            title='statics'
+                            className='font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
+                          >
+                            Login
                           </Link>
                         </li>
                       </ul>
