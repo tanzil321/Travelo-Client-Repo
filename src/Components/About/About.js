@@ -6,13 +6,13 @@ const About = () => {
         <section className="dark:bg-gray-800 dark:text-gray-100">
 	<div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
 		<div>
-			<h2 className="text-3xl font-bold tracking-tight text-center sm:text-5xl dark:text-gray-50">Aliquip definiebas ad est</h2>
-			<p className="max-w-3xl mx-auto mt-4 text-xl text-center dark:text-gray-400">Quando cetero his ne, eum admodum sapientem ut.</p>
+			<h2 className="text-3xl font-bold tracking-tight text-center sm:text-5xl dark:text-gray-50">Get inspiration for your next trip</h2>
+			<p className="max-w-3xl mx-auto mt-4 text-xl text-center dark:text-gray-400">Recommended based on your activity.</p>
 		</div>
 		<div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
 			<div>
-				<h3 className="text-2xl font-bold tracking-tight sm:text-3xl dark:text-gray-50">Ad vix debet docendi</h3>
-				<p className="mt-3 text-lg dark:text-gray-400">Ne dicta praesent ocurreret has, diam theophrastus at pro. Eos etiam regione ut, persius eripuit quo id. Sit te euismod tacimates.</p>
+				<h3 className="text-2xl font-bold tracking-tight sm:text-3xl dark:text-gray-50">Deals of The Week</h3>
+				<p className="mt-3 text-lg dark:text-gray-400">The land of Sajek is your chance to be something special - an explorer! With discounts of up to 50%, it's time to say yes!</p>
 				<div className="mt-12 space-y-12">
 					<div className="flex">
 						<div className="flex-shrink-0">
@@ -23,8 +23,8 @@ const About = () => {
 							</div>
 						</div>
 						<div className="ml-4">
-							<h4 className="text-lg font-medium leading-6 dark:text-gray-50">Per ei quaeque sensibus</h4>
-							<p className="mt-2 dark:text-gray-400">Ex usu illum iudico molestie. Pro ne agam facete mediocritatem, ridens labore facete mea ei. Pro id apeirian dignissim.</p>
+							<h4 className="text-lg font-medium leading-6 dark:text-gray-50">Premium Hotel Rooms</h4>
+							<p className="mt-2 dark:text-gray-400">A premium room has a great view from the window (Example: River, Downtown or a Park) and a standard room is the exact same size room but may have a plain outside view from the rooms window (Example: Side of building, back of hotel or nothing at all). You'll enjoy the outside better from a premium hotel room.</p>
 						</div>
 					</div>
 					<div className="flex">
@@ -36,8 +36,8 @@ const About = () => {
 							</div>
 						</div>
 						<div className="ml-4">
-							<h4 className="text-lg font-medium leading-6 dark:text-gray-50">Cu imperdiet posidonium sed</h4>
-							<p className="mt-2 dark:text-gray-400">Amet utinam aliquando ut mea, malis admodum ocurreret nec et, elit tibique cu nec. Nec ex maluisset inciderint, ex quis.</p>
+							<h4 className="text-lg font-medium leading-6 dark:text-gray-50">Tour Guide</h4>
+							<p className="mt-2 dark:text-gray-400">Come explore beaches, old growth forests, tea plantations and swarming cities on a private Bangladesh tour with a friendly local guide.</p>
 						</div>
 					</div>
 					<div className="flex">
@@ -49,8 +49,8 @@ const About = () => {
 							</div>
 						</div>
 						<div className="ml-4">
-							<h4 className="text-lg font-medium leading-6 dark:text-gray-50">Nulla omittam sadipscing mel ne</h4>
-							<p className="mt-2 dark:text-gray-400">At sed possim oporteat probatus, justo graece ne nec, minim commodo legimus ut vix. Ut eos iudico quando soleat, nam modus.</p>
+							<h4 className="text-lg font-medium leading-6 dark:text-gray-50">Flight Bookings</h4>
+							<p className="mt-2 dark:text-gray-400">Compare Hundreds of Airlines - All Fares at One Place. Save Time & Money. Get Great Rates. Choose From Thousands of Flights to Destinations Around The World. Round Trip or One way. Top Flight Deals.</p>
 						</div>
 					</div>
 				</div>
@@ -122,42 +122,42 @@ const About = () => {
 				<path d="M426.072,86.928A238.75,238.75,0,0,0,88.428,424.572,238.75,238.75,0,0,0,426.072,86.928ZM257.25,462.5c-114,0-206.75-92.748-206.75-206.75S143.248,49,257.25,49,464,141.748,464,255.75,371.252,462.5,257.25,462.5Z"></path>
 				<polygon points="221.27 305.808 147.857 232.396 125.23 255.023 221.27 351.063 388.77 183.564 366.142 160.937 221.27 305.808"></polygon>
 			</svg>
-			<span>Ea et neque distinctio</span>
+			<span>Tour Plans</span>
 		</li>
 		<li className="flex items-center space-x-2">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-teal-400">
 				<path d="M426.072,86.928A238.75,238.75,0,0,0,88.428,424.572,238.75,238.75,0,0,0,426.072,86.928ZM257.25,462.5c-114,0-206.75-92.748-206.75-206.75S143.248,49,257.25,49,464,141.748,464,255.75,371.252,462.5,257.25,462.5Z"></path>
 				<polygon points="221.27 305.808 147.857 232.396 125.23 255.023 221.27 351.063 388.77 183.564 366.142 160.937 221.27 305.808"></polygon>
 			</svg>
-			<span>Quaerat obcaecati voluptatem </span>
+			<span>Hotel Booking </span>
 		</li>
 		<li className="flex items-center space-x-2">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-teal-400">
 				<path d="M426.072,86.928A238.75,238.75,0,0,0,88.428,424.572,238.75,238.75,0,0,0,426.072,86.928ZM257.25,462.5c-114,0-206.75-92.748-206.75-206.75S143.248,49,257.25,49,464,141.748,464,255.75,371.252,462.5,257.25,462.5Z"></path>
 				<polygon points="221.27 305.808 147.857 232.396 125.23 255.023 221.27 351.063 388.77 183.564 366.142 160.937 221.27 305.808"></polygon>
 			</svg>
-			<span>Quas eius repudianda</span>
+			<span>Flight Booking</span>
 		</li>
 		<li className="flex items-center space-x-2">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-teal-400">
 				<path d="M426.072,86.928A238.75,238.75,0,0,0,88.428,424.572,238.75,238.75,0,0,0,426.072,86.928ZM257.25,462.5c-114,0-206.75-92.748-206.75-206.75S143.248,49,257.25,49,464,141.748,464,255.75,371.252,462.5,257.25,462.5Z"></path>
 				<polygon points="221.27 305.808 147.857 232.396 125.23 255.023 221.27 351.063 388.77 183.564 366.142 160.937 221.27 305.808"></polygon>
 			</svg>
-			<span>Free and MIT licensed</span>
+			<span>Travel Agency</span>
 		</li>
 		<li className="flex items-center space-x-2">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-teal-400">
 				<path d="M426.072,86.928A238.75,238.75,0,0,0,88.428,424.572,238.75,238.75,0,0,0,426.072,86.928ZM257.25,462.5c-114,0-206.75-92.748-206.75-206.75S143.248,49,257.25,49,464,141.748,464,255.75,371.252,462.5,257.25,462.5Z"></path>
 				<polygon points="221.27 305.808 147.857 232.396 125.23 255.023 221.27 351.063 388.77 183.564 366.142 160.937 221.27 305.808"></polygon>
 			</svg>
-			<span>Praesentium ea et neque distinctio</span>
+			<span>Tour Guide</span>
 		</li>
 		<li className="flex items-center space-x-2">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-teal-400">
 				<path d="M426.072,86.928A238.75,238.75,0,0,0,88.428,424.572,238.75,238.75,0,0,0,426.072,86.928ZM257.25,462.5c-114,0-206.75-92.748-206.75-206.75S143.248,49,257.25,49,464,141.748,464,255.75,371.252,462.5,257.25,462.5Z"></path>
 				<polygon points="221.27 305.808 147.857 232.396 125.23 255.023 221.27 351.063 388.77 183.564 366.142 160.937 221.27 305.808"></polygon>
 			</svg>
-			<span>Architecto beatae esse ab amet </span>
+			<span>Reliability </span>
 		</li>
 	</ul>
 </div>

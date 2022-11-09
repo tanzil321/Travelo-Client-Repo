@@ -10,7 +10,7 @@ const LoadMore = () => {
     let{place_name,rating,picture,place_price,_id} = loadData
     return (
         <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 p-12 overflow-hidden     dark:bg-gray-800 dark:text-gray-100  ">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 p-12 overflow-hidden     dark:bg-gray-800 justify-center items-center dark:text-gray-100  ">
             {
                 loadData.map(ldd=><Showall
                 ldd={ldd}

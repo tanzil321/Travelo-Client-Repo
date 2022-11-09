@@ -7,10 +7,10 @@ import { AuthContext } from './Context/UserContext';
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const { user, logout } = useContext(AuthContext)
-    console.log(user);
-    useEffect(() => {
-      console.log('Navbar',JSON.stringify(user));
-    },[user])
+    // console.log(user);
+    // useEffect(() => {
+    //   console.log('Navbar',JSON.stringify(user));
+    // },[user])
 
   const handleLogout = () => {
     logout()
@@ -76,7 +76,7 @@ const Header = () => {
                   Blog 
                 </NavLink>
               </li>
-              <li>
+              <li className='relative flex items-center justify-between'>
                 
                 {/* <NavLink
                   to='/login'
@@ -92,7 +92,7 @@ const Header = () => {
                 </NavLink> */}
                 {user?.uid ? (
             <>
-            <span className='mr-5 text-purple-900 font-bold'> <h1> {user?.uid? user?.displayName : 'user'}</h1></span>
+            <span className='mr-5 text-slate-400 font-bold'> <h1> {user?.uid? user?.displayName : 'user'}</h1></span>
             <div>
                     {
                         user ? <img src={user?.photoURL} title={user?.displayName} style={{
@@ -104,7 +104,7 @@ const Header = () => {
                 </div>
               <button
                 onClick={handleLogout}
-                className='inline-flex items-center bg-slate-400 border-0 py-1 px-3 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0'
+                className='inline-flex items-center bg-slate-400 border-0 py-1 px-3 focus:outline-none hover:bg-slate-600 rounded text-base mt-4 md:mt-0'
               >
                 Logout
                 <svg
@@ -122,12 +122,30 @@ const Header = () => {
             </>
           ) : (
             <>
-            <Link to='/login' className='inline-flex  items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none'>
-              Login
-            </Link>
-            <Link to='/register' className='inline-flex  items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none'>
-            Register
-          </Link>
+             <NavLink
+                  to='/login'
+                  aria-label='Login Here'
+                  title='Login'
+                  className={({ isActive }) =>
+                    isActive
+                      ? 'font-medium tracking-wide text-white-700 transition-colors duration-200 hover:text-deep-purple-accent-400 self-center px-8 py-3 rounded'
+                      : 'font-medium tracking-wide text-white-700 transition-colors duration-200 hover:text-deep-purple-accent-400 self-center px-8 py-3 rounded'
+                  }
+                >
+                  Login
+                </NavLink>
+                <NavLink
+                  to='/register'
+                  aria-label='Signup Here'
+                  title='Signup'
+                  className={({ isActive }) =>
+                    isActive
+                      ? 'self-center px-8 py-3 font-semibold rounded dark:bg-teal-400 dark:text-gray-900'
+                      : 'self-center px-8 py-3 font-semibold rounded dark:bg-teal-400 dark:text-gray-900'
+                  }
+                >
+                  SignUp
+                </NavLink>
             </>
           )}
                 {/* <NavLink
@@ -240,6 +258,14 @@ const Header = () => {
                             className='font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
                           >
                             Login
+                          </Link>
+                          <Link
+                            to='/login'
+                            aria-label='login'
+                            title='statics'
+                            className='font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400 self-center px-8 py-3 font-semibold rounded dark:bg-teal-400 dark:text-gray-900'
+                          >
+                            SignUp
                           </Link>
                         </li>
                       </ul>
