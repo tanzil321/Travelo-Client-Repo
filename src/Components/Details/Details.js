@@ -17,8 +17,8 @@ const Details = () => {
     const rumman = review.filter(fardin=>fardin.user_id===user_id)
     
     return (
-        <div className='gap-10 dark:bg-gray-800 dark:text-gray-100 flex justify-center items-center pt-8 py-8'>
-           <div className="max-w-lg p-4 shadow-md dark:bg-gray-900 dark:text-gray-100">
+        <div className='gap-10 pl-10 pr-10 dark:bg-gray-800 dark:text-gray-100  justify-center items-center pt-8 py-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
+           <div className="max-w-lg  p-4 shadow-md dark:bg-gray-900 dark:text-gray-100">
 	<div className="flex justify-between pb-4 border-bottom">
 		<div className="flex items-center">
 			<Link rel="noopener noreferrer" href="#" className="mb-0 capitalize dark:text-gray-100">Photography</Link>

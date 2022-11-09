@@ -5,6 +5,7 @@ import Home from "../Components/Home";
 import LoadMore from "../Components/LoadMore/LoadMore";
 import Login from "../Components/Login";
 import Register from "../Components/Register";
+import MyReviews from "../Components/Reviews/MyReviews";
 import Main from "../Layout/Main";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         {
             path: '/register',
             element: <Register></Register>
+        },
+        {
+            path: '/myreviews',
+            element: <MyReviews></MyReviews>
         },
         {
             path: '/services',

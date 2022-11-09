@@ -14,8 +14,8 @@ const Card = () => {
                  <img src={banner1} alt="" className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500" />
                  <div className="p-6 space-y-2 lg:col-span-5">
                      <h3 className="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">Welcome To Our Services</h3>
-                     <span className="text-xs dark:text-gray-400">February 19, 2021</span>
-                     <p>Ei delenit sensibus liberavisse pri. Quod suscipit no nam. Est in graece fuisset, eos affert putent doctus id.</p>
+                     <span className="text-xs dark:text-gray-400">February 19, 2022</span>
+                     <p>Got the urge to get away? We’ve got you covered. Check out the tours below, then get booking today!</p>
                  </div>
              </Link>
              <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>

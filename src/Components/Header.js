@@ -78,20 +78,37 @@ const Header = () => {
               </li>
               <li className='relative flex items-center justify-between'>
                 
-                {/* <NavLink
-                  to='/login'
-                  aria-label='Login Here'
-                  title='Login'
-                  className={({ isActive }) =>
-                    isActive
-                      ? 'font-medium tracking-wide text-white-700 transition-colors duration-200 hover:text-deep-purple-accent-400 self-center px-8 py-3 rounded'
-                      : 'font-medium tracking-wide text-white-700 transition-colors duration-200 hover:text-deep-purple-accent-400 self-center px-8 py-3 rounded'
-                  }
-                >
-                  Login
-                </NavLink> */}
+               
                 {user?.uid ? (
             <>
+            <li className='mr-5'>
+                <NavLink
+                  to='/myreviews'
+                  aria-label='reviews'
+                  title='reviews'
+                  className={({ isActive }) =>
+                    isActive
+                      ? 'font-medium tracking-wide text-white-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                      : 'font-medium tracking-wide text-white-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                  }
+                >
+                  My Reviews
+                </NavLink>
+              </li>
+              <li className='mr-5'>
+                <NavLink
+                  to='/blog'
+                  aria-label='Blog'
+                  title='Blog'
+                  className={({ isActive }) =>
+                    isActive
+                      ? 'font-medium tracking-wide text-white-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                      : 'font-medium tracking-wide text-white-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                  }
+                >
+                 Add Services 
+                </NavLink>
+              </li>
             <span className='mr-5 text-slate-400 font-bold'> <h1> {user?.uid? user?.displayName : 'user'}</h1></span>
             <div>
                     {
@@ -102,6 +119,7 @@ const Header = () => {
                         }} alt="" /> : ''
                     }
                 </div>
+                
               <button
                 onClick={handleLogout}
                 className='inline-flex items-center bg-slate-400 border-0 py-1 px-3 focus:outline-none hover:bg-slate-600 rounded text-base mt-4 md:mt-0'
@@ -148,18 +166,7 @@ const Header = () => {
                 </NavLink>
             </>
           )}
-                {/* <NavLink
-                  to='/register'
-                  aria-label='Signup Here'
-                  title='Signup'
-                  className={({ isActive }) =>
-                    isActive
-                      ? 'self-center px-8 py-3 font-semibold rounded dark:bg-teal-400 dark:text-gray-900'
-                      : 'self-center px-8 py-3 font-semibold rounded dark:bg-teal-400 dark:text-gray-900'
-                  }
-                >
-                  SignUp
-                </NavLink> */}
+               
               </li>
             </ul>
             <div className='lg:hidden'>
@@ -263,7 +270,7 @@ const Header = () => {
                             to='/login'
                             aria-label='login'
                             title='statics'
-                            className='font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400 self-center px-8 py-3 font-semibold rounded dark:bg-teal-400 dark:text-gray-900'
+                            className='font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400 self-center ml-5 px-8 py-3 font-semibold rounded dark:bg-teal-400 dark:text-gray-900'
                           >
                             SignUp
                           </Link>
