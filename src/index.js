@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import UserContext from './Components/Context/UserContext';
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-photo-view/dist/react-photo-view.css';
 import { ToastContainer } from 'react-toastify';
 
 

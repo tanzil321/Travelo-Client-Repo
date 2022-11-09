@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import 'react-photo-view/dist/react-photo-view.css'
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const Showall = ({ldd}) => {
     console.log(ldd);
@@ -12,7 +14,13 @@ const Showall = ({ldd}) => {
             </p>
 	</div>
 	<div>
-		<img src={ldd.picture} alt="" className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500" />
+	<PhotoProvider>
+      <PhotoView src={ldd.picture}>
+	  <img src={ldd.picture} alt="" className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500" />
+      </PhotoView>
+    </PhotoProvider>
+		
+		
 		<h2 className="mb-1 text-xl font-semibold">{ldd.place_name}</h2>
 		<p className="text-sm dark:text-gray-400">Price : {ldd.place_price}</p>
 		<p className="text-sm dark:text-gray-400">Hotels : {ldd.services.hotel}</p>
