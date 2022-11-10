@@ -23,7 +23,7 @@ const Showall = ({ldd}) => {
 		
 		<h2 className="mb-1 text-xl font-semibold">{ldd.place_name}</h2>
 		<p className="text-sm dark:text-gray-400">Price : {ldd.place_price}</p>
-		<p className="text-sm dark:text-gray-400">Hotels : {ldd.services.hotel}</p>
+		
         <div className='flex space-x-2 text-sm dark:text-gray-400'>
         
     <button className='flex items-center ' type="button" title="Rate 1 stars" aria-label="Rate 1 stars">
