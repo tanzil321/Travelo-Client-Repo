@@ -1,20 +1,60 @@
-import React, { useEffect, useState } from 'react';
+import { comment } from 'postcss';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import  { AuthContext } from '../Context/UserContext';
+
 
 const Details = () => {
-    let detailsData = useLoaderData()
-    let{place_name,details,picture,user_id} = detailsData;
-    
+	const {user} = useContext(AuthContext)
 
+    let detailsData = useLoaderData()
+    let{place_name,details,picture,user_id,_id} = detailsData;
+    let [data,setData]=useState([])
+	
+	const handleSubmit =(e)=>{
+		e.preventDefault()
+		
+		const form = e.target
+		
+		
+		const reviews = {
+			customerName: user?.displayName,
+            customerEmail: user?.email,
+            customerPhoto: user?.photoURL,
+			serviceId: _id,
+            review: form.review.value,
+			
+		}
+		form.reset()
+		fetch('http://localhost:5000/comments', {
+            method: 'POST',
+            headers: {
+                "content-type": 'application/json'
+            },
+            body: JSON.stringify(reviews)
+        })
+            .then(res => {
+                res.json()
+            })
+            .then(info => {
+                console.log(info)
+                setData(info)
+            })
+	}
 
     const [review, setReview]=useState([])
     useEffect(()=>{
         fetch('http://localhost:5000/comments')
         .then(res=>res.json())
-        .then(data=>setReview(data))
+        .then(data=>{ 
+			const commentServicWise = data.filter(d=>d.serviceId === _id)
+			setReview(commentServicWise)
+		})
 
-    },[]);
-    const rumman = review.filter(fardin=>fardin.user_id===user_id)
+    },[review,_id]);
+
+console.log(review)
+
     
     return (
         <div className='gap-10 pl-10 pr-10 dark:bg-gray-800 dark:text-gray-100  justify-center items-center pt-8 py-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
@@ -33,7 +73,7 @@ const Details = () => {
 			</div>
 		</div>
 		<div className="space-y-2">
-			<a rel="noopener noreferrer" href="#" className="block">
+			<a rel="noopener noreferrer" href="/" className="block">
 				<h3 className="text-xl font-semibold dark:text-teal-400">{place_name}</h3>
 			</a>
 			<p className="leading-snug dark:text-gray-400">{details}</p>
@@ -42,7 +82,7 @@ const Details = () => {
 </div>
 <div>
     {
-    rumman.map(fardin  => 
+    review.map(fardin  => 
         <div className="container flex flex-col mb-5 w-full py max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
 	<div className="flex justify-between p-4">
 		<div className="flex space-x-4">
@@ -103,8 +143,21 @@ const Details = () => {
 			</div>
 		</div>
 		<div className="flex flex-col w-full">
-			<textarea rows="3" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"></textarea>
-			<button type="button" className="py-4 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-teal-400">Leave feedback</button>
+		<form onSubmit={handleSubmit} novalidate="" action="" className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
+		<fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
+			
+			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+				
+				
+				<div className="col-span-full ">
+					<label for="review" className="text-sm">Review</label>
+					<input name='review' id="review" type="text" placeholder="Input Your review" className="w-full rounded-md focus:ring  text-center focus:ring-opacity-75 focus:ring-teal-400 dark:border-gray-700 dark:text-gray-900" />
+				</div>	
+			</div>
+		</fieldset>
+		<button type="submit" className="py-4 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-teal-400">Leave feedback</button>
+	</form>
+			
 		</div>
 	</div>
 	<div className="flex items-center justify-center">

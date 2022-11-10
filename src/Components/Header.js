@@ -97,7 +97,7 @@ const Header = () => {
               </li>
               <li className='mr-5'>
                 <NavLink
-                  to='/blog'
+                  to='/addservices'
                   aria-label='Services'
                   title='Services'
                   className={({ isActive }) =>

@@ -37,7 +37,7 @@ const Showall = ({ldd}) => {
 	</div>
 	<div className="flex flex-wrap justify-between">
 		<div className="space-x-2">
-        <Link to={`/services/${ldd._id}`}><button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-teal-400 dark:text-gray-900">Read more</button></Link>
+        <Link to={`/services/${ldd._id}`}><button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-teal-400 dark:text-gray-900">View Details</button></Link>
             
 		</div>
 		<div className="flex space-x-2 text-sm dark:text-gray-400">
