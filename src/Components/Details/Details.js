@@ -11,7 +11,7 @@ const Details = () => {
     let detailsData = useLoaderData()
     let{place_name,details,picture,user_id,_id} = detailsData;
     let [data,setData]=useState([])
-	
+	const date = new Date().getTime()
 	const handleSubmit =(e)=>{
 		e.preventDefault()
 		
@@ -19,6 +19,7 @@ const Details = () => {
 		
 		
 		const reviews = {
+			time: date,
 			customerName: user?.displayName,
             customerEmail: user?.email,
             customerPhoto: user?.photoURL,
@@ -46,7 +47,7 @@ const Details = () => {
 
     const [reviews, setReview]=useState([])
     useEffect(()=>{
-        fetch('https://travelo-server.vercel.app/comments')
+        fetch('https://travelo-server.vercel.app/reviews')
         .then(res=>res.json())
         .then(data=>{ 
 			const commentServicWise = data.filter(d=>d.serviceId === _id)
@@ -186,9 +187,7 @@ reviews.map(rev=><CardDetails
 			
 		</div>
 	</div>
-	{/* <div className="flex items-center justify-center">
-		<a rel="noopener noreferrer" href="#" className="text-sm dark:text-gray-400">Maybe later</a>
-	</div> */}
+	
 </div>
         </div>
     );

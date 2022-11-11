@@ -36,7 +36,7 @@ const MyReviews = () => {
        
         console.log(id)
         if(proceed){
-            fetch(`http://localhost:5000/comments/${id}`,{
+            fetch(`https://travelo-server.vercel.app/comments/${id}`,{
                 method: 'DELETE'
             })
             .then(res=>res.json())
@@ -53,7 +53,14 @@ const MyReviews = () => {
    
     return (
        <div>
-          <div className="container flex p p-2 mx-auto sm:p-4 justify-center dark:text-gray-100">
+          {
+            review.length===0?
+            <div>
+                <p>0 comments</p>
+            </div>
+            :
+            <div>
+                <div className="container flex p p-2 mx-auto sm:p-4 justify-center dark:text-gray-100">
             <h2 className="mb-4 text-2xl font-semibold ">My reviews</h2>
                  <div className="overflow-x-auto">
             <table className=" text-xs">
@@ -84,6 +91,8 @@ const MyReviews = () => {
           </table>
           </div>
           </div>
+            </div>
+          }
           </div>
     
     );

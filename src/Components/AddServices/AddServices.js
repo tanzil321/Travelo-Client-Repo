@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../Context/UserContext';
 
 const AddServices = () => {
@@ -40,6 +41,7 @@ const AddServices = () => {
             .then(info => {
                 console.log(info)
                 setService(info)
+				toast.success('Added To Home Page')
             })
 	}
     return (

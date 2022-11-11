@@ -43,7 +43,7 @@ const router = createBrowserRouter([
             path: '/updatereview/:id',
             element: <UpdateReview></UpdateReview>,
             loader:({params})=>{
-                return fetch(`http://localhost:5000/comments/${params.id}`)
+                return fetch(`https://travelo-server.vercel.app/${params.id}`)
             }
         },
         {

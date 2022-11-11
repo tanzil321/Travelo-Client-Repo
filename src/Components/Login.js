@@ -22,6 +22,34 @@ const Login = () => {
   
       signin(email, password)
         .then(result => {
+          const currentuser = result.user;
+
+      fetch('https://travelo-server.vercel.app/jwt', {
+                  method: 'POST',
+                  headers: {
+                      'content-type': 'application/json'
+                  },
+                  body: JSON.stringify(currentuser)
+              })
+                  .then(res => res.json())
+                  .then(data => {
+                    console.log(data)
+                      localStorage.setItem('traveloToken', data.token)
+                      let user = result.user
+          if(user){
+            toast.success('Login Success!')
+          navigate(from, { replace: true })
+          }
+          else{
+            toast.warning('Please Verify Your Email')
+          }
+          console.log(result.user)
+
+                      setTimeout(() => {
+                          navigate(from, { replace: true })
+
+                      }, 500);
+                  })
           let user = result.user
           if(user){
             toast.success('Login Success!')

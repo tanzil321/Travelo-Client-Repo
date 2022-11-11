@@ -23,7 +23,7 @@ const UserContext = ({ children }) => {
         .then(res=>res.json())
         .then(data=>setServices(data.reverse()))
 
-    },[])
+    },[servicesx])
 
     ///////////////////////////////
 

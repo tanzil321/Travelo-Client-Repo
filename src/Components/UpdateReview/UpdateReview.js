@@ -15,7 +15,7 @@ const UpdateReview = () => {
         const body = {
             review: review
         }
-        fetch(`http://localhost:5000/allreview/${data._id}`, {
+        fetch(`https://travelo-server.vercel.app/${data._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
