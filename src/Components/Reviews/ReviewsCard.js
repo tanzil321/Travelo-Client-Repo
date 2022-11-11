@@ -24,7 +24,7 @@ const ReviewsCard = ({rev,handleDelete}) => {
  
     return (
        
-                    <tr className="border-b w-full border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
+                    <tr className="border-b  w-full border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
                        
                         <td className="p-3">
                             <p>{service[0]?.place_name}</p>

@@ -4,7 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const UpdateReview = () => {
     const data = useLoaderData()
-    console.log(data)
+    console.log(data._id)
 
 
     const handleUpdate = event => {
@@ -15,7 +15,8 @@ const UpdateReview = () => {
         const body = {
             review: review
         }
-        fetch(`https://travelo-server.vercel.app/${data._id}`, {
+        fetch(`https://travelo-server.vercel.app/allreview/${data._id}`, {
+
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
