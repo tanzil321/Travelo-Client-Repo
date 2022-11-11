@@ -33,8 +33,10 @@ const MyReviews = () => {
 
     const handleDelete = id =>{
         const proceed = window.confirm('Are you sure, you want remove this review ?');
+       
+        console.log(id)
         if(proceed){
-            fetch(`https://travelo-server.vercel.app/comments/${id}`,{
+            fetch(`http://localhost:5000/comments/${id}`,{
                 method: 'DELETE'
             })
             .then(res=>res.json())
@@ -51,7 +53,7 @@ const MyReviews = () => {
    
     return (
        <div>
-          <div className="container ml-96  p-2  sm:p-4 dark:text-gray-100">
+          <div className="container flex p p-2 mx-auto sm:p-4 justify-center dark:text-gray-100">
             <h2 className="mb-4 text-2xl font-semibold ">My reviews</h2>
                  <div className="overflow-x-auto">
             <table className=" text-xs">

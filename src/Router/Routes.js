@@ -7,6 +7,7 @@ import LoadMore from "../Components/LoadMore/LoadMore";
 import Login from "../Components/Login";
 import Register from "../Components/Register";
 import MyReviews from "../Components/Reviews/MyReviews";
+import UpdateReview from "../Components/UpdateReview/UpdateReview";
 import Main from "../Layout/Main";
 import PrivateRoute from "./PrivateRoute";
 
@@ -37,6 +38,13 @@ const router = createBrowserRouter([
         {
             path: '/register',
             element: <Register></Register>
+        },
+        {
+            path: '/updatereview/:id',
+            element: <UpdateReview></UpdateReview>,
+            loader:({params})=>{
+                return fetch(`http://localhost:5000/comments/${params.id}`)
+            }
         },
         {
             path: '/myreviews',

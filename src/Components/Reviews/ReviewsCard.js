@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ReviewsCard = ({rev,handleDelete}) => {
     const imgSize = {
         width: '100px'
     }
     console.log(rev);
-    const {review, serviceId} = rev;
+    const {review, serviceId,_id} = rev;
 
 
     const [service,setservices] = useState([])
@@ -37,11 +38,12 @@ const ReviewsCard = ({rev,handleDelete}) => {
                         </td>
 
                         <td className="p-3">
-                            <button onClick={()=> handleDelete(service[0]._id)} className="text-red-700 p-3" >Delete</button>
+                            <button onClick={()=> handleDelete(_id)} className="text-red-700 p-3" >Delete</button>
                         </td>
 
                         <td className="p-3">
-                            <button className="text-orange-400 p-3" >Update</button>
+                            <Link to={`/updatereview/${_id}`}><button className="text-orange-400 p-3" >Update</button>
+                            </Link>
                         </td>
 
                     </tr>

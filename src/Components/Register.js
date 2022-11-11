@@ -2,15 +2,18 @@ import { GithubAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import useTitle from '../Hooks';
+
 import { AuthContext } from './Context/UserContext';
 
 const Register = () => {
+  useTitle('Register')
     const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from?.pathname || '/'
   const { createUser,setUser, updateName, updatePhotoURL, verifyEmail, signInWithGoogle,updateURL,gitSignIn } =
     useContext(AuthContext)
-
+    
   // Signup using Email & Pass
   const handleSubmit = event => {
     event.preventDefault()
@@ -54,6 +57,7 @@ const Register = () => {
   }
   //github signin
   let githubProvider = new GithubAuthProvider()
+  
   const handleGithubSignin=()=>{
     gitSignIn(githubProvider)
     .then(() => { 

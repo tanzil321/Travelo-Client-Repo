@@ -2,6 +2,7 @@ import { GithubAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import useTitle from '../Hooks';
 import { AuthContext } from './Context/UserContext';
 
 const Login = () => {
@@ -12,7 +13,7 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/'
   
     const { signin, resetPassword, signInWithGoogle, gitSignIn } = useContext(AuthContext)
-  
+    useTitle('login')
     const handleSubmit = event => {
       event.preventDefault()
   

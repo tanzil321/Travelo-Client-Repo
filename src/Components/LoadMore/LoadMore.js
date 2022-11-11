@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../Hooks';
 import { AuthContext } from '../Context/UserContext';
 import Showall from './Showall'
 
 const LoadMore = () => {
-    
+    useTitle('Services')
     let loadData = useLoaderData()
     console.log(loadData);
     let{place_name,rating,picture,place_price,_id} = loadData
