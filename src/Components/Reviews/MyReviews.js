@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/UserContext';
 import ReviewsCard from './ReviewsCard';
 
@@ -12,13 +13,31 @@ const MyReviews = () => {
     const {user} = useContext(AuthContext)
     const [review, setReview]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/comments')
+        fetch('https://travelo-server.vercel.app/comments')
         .then(res=>res.json())
         .then(data=>{
             const userWiseReview = data.filter(d=>d.customerEmail === user?.email)
             setReview(userWiseReview)
         })
     },[user?.email]);
+
+    const handleDelete = id =>{
+        const proceed = window.confirm('Are you sure, you want remove this review ?');
+        if(proceed){
+            fetch(`https://travelo-server.vercel.app/comments/${id}`,{
+                method: 'DELETE'
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+                if(data.deletedCount >0){
+                    toast.success('Deleted Successfully !!')
+                    const remaining = review.filter(odr=>odr._id!==id)
+                    setReview(remaining)
+                }
+            })
+        }
+}
    
     return (
        <div>
@@ -42,6 +61,7 @@ const MyReviews = () => {
                     review.map(rev=><ReviewsCard
                         key={rev._id}
                         rev={rev}
+                        handleDelete={handleDelete}
                    >
 
                    </ReviewsCard>)

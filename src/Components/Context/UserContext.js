@@ -19,9 +19,9 @@ export const AuthContext = createContext()
 const UserContext = ({ children }) => {
     const [servicesx, setServices]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/services')
+        fetch('https://travelo-server.vercel.app/services')
         .then(res=>res.json())
-        .then(data=>setServices(data))
+        .then(data=>setServices(data.reverse()))
 
     },[])
 

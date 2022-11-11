@@ -48,14 +48,14 @@ const router = createBrowserRouter([
         {
             path: '/services',
             loader:()=>{
-              return fetch('http://localhost:5000/services')
+              return fetch('https://travelo-server.vercel.app/services')
             },
             element: <LoadMore></LoadMore>
         },
         {
             path: '/services/:id',
             loader:({params})=>{
-              return fetch(`http://localhost:5000/services/${params.id}`)
+              return fetch(`https://travelo-server.vercel.app/services/${params.id}`)
             },
             element: <Details></Details>
         },

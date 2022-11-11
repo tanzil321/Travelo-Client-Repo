@@ -5,7 +5,7 @@ const CardDetails = ({rev}) => {
 
    const [service,setservices] = useState([])
    useEffect(()=>{
-    fetch('http://localhost:5000/services')
+    fetch('https://travelo-server.vercel.app/services')
     .then(res=>res.json())
     .then(data=>{
         const speceficService = data.filter(d=> d._id === serviceId)
