@@ -10,16 +10,26 @@ const MyReviews = () => {
 
 
 
-    const {user} = useContext(AuthContext)
+    const {user,logout} = useContext(AuthContext)
     const [review, setReview]=useState([])
     useEffect(()=>{
-        fetch('https://travelo-server.vercel.app/comments')
-        .then(res=>res.json())
+        fetch(`https://travelo-server.vercel.app/comments?email=${user?.email}`,{
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('traveloToken')}`
+            }
+        })
+        .then(res => {
+
+            if (res.status === 401 || res.status === 403) {
+                return logout()
+            }
+            return res.json()
+        })
         .then(data=>{
             const userWiseReview = data.filter(d=>d.customerEmail === user?.email)
             setReview(userWiseReview)
         })
-    },[user?.email]);
+    },[logout,user?.email]);
 
     const handleDelete = id =>{
         const proceed = window.confirm('Are you sure, you want remove this review ?');
@@ -30,7 +40,7 @@ const MyReviews = () => {
             .then(res=>res.json())
             .then(data=>{
                 console.log(data);
-                if(data.deletedCount >0){
+                if(data.deletedCount > 0){
                     toast.success('Deleted Successfully !!')
                     const remaining = review.filter(odr=>odr._id!==id)
                     setReview(remaining)

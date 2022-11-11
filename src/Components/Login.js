@@ -37,7 +37,30 @@ const Login = () => {
     // Google Signin
     const handleGoogleSignin = () => {
       signInWithGoogle().then(result => {
-        console.log(result.user)
+        console.log(result.user);
+
+
+
+			const currentuser = result.user;
+
+      fetch('https://travelo-server.vercel.app/jwt', {
+                  method: 'POST',
+                  headers: {
+                      'content-type': 'application/json'
+                  },
+                  body: JSON.stringify(currentuser)
+              })
+                  .then(res => res.json())
+                  .then(data => {
+                    console.log(data)
+                      localStorage.setItem('traveloToken', data.token)
+
+                      setTimeout(() => {
+                          navigate(from, { replace: true })
+
+                      }, 500);
+                  })
+
         navigate(from, { replace: true })
       })
     }
